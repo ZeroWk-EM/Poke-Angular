@@ -11,7 +11,7 @@ import { CardComponent } from 'src/components/card/card.component';
   declarations: [
     AppComponent,
     NavbarComponent,
-    RegisterComponent
+    RegisterComponent,
     CardComponent,
   ],
   imports: [
