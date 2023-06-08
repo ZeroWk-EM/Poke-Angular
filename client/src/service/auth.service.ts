@@ -6,7 +6,7 @@ import { IUser } from 'src/app/interface/user.interface';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthServiceService {
+export class AuthService {
   private authURL = `http://localhost:5000/v1/auth`;
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
