@@ -1,0 +1,22 @@
+.card {
+    border-radius: 30px;
+}
+
+.bg-card {
+    background-color: #252627;
+}
+
+.bg-button {
+    background-color: #ff1c1c;
+    border-radius: 30px;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.bg-button:hover {
+    background-color: #f7cb15;
+    color: #ff1c1c;
+}
