@@ -18,6 +18,10 @@ app.get("/", (_: Request, res: Response) => {
 
 const PORT = process.env.PORT || 3000;
 
+import authRoutes from "./routes/user.routes"
+
+app.use("/v1/auth",authRoutes)
+
 app.listen(PORT, () => {
   console.log(`Server started in port ${PORT} `);
   connectToMongoDB();
