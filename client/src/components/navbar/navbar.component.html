@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg bg-warning">
+    <div class="d-flex justify-content-between w-100">
+        <div class="ms-5 w-25 h-25 p-3">
+            <img src="./../../assets/img/AngulPokemon.svg" class="w-100 h-100" />
+        </div>
+        <div class="collapse navbar-collapse justify-content-end p-3 me-5" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-5">
+                <li class="nav-item px-4">
+                    <a class="nav-link fs-3 fw-bold" aria-current="page" href="#pokedex">POKEDEX</a>
+                </li>
+                <li class="nav-item px-4">
+                    <a class="nav-link fs-3 fw-bold" href="#favorite">FAVORITE</a>
+                </li>
+                <li class="nav-item px-4">
+                    <ng-container *ngIf="login; else noLogged" ><a class="nav-link fs-3 fw-bold" href="#">HELLO,</a></ng-container>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<ng-template #noLogged><a href="#" class="nav-link fs-3 fw-bold">GUEST</a></ng-template>
