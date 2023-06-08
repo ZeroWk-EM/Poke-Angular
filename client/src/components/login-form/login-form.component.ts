@@ -8,14 +8,13 @@ import { AuthService } from 'src/service/auth.service';
   styleUrls: ['./login-form.component.css'],
 })
 export class LoginFormComponent implements OnInit {
-  loginForm!: FormGroup<any>;
-
+  loginForm!: FormGroup;
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      email: new FormControl("", [Validators.required, Validators.email]),
-      password: new FormControl("", [
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
       ]),
@@ -30,8 +29,8 @@ export class LoginFormComponent implements OnInit {
       )
       .subscribe({
         next: (response) => {
-         localStorage.setItem("fullname", response.fullname);
-         localStorage.setItem("token", response.token);
+          localStorage.setItem('fullname', response.fullname);
+          localStorage.setItem('token', response.token);
         },
         error: (error) => {
           console.log(error);
