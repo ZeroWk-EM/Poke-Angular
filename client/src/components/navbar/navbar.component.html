@@ -12,10 +12,9 @@
                     <a class="nav-link fs-3 fw-bold" href="#favorite">FAVORITE</a>
                 </li>
                 <li class="nav-item px-4">
-                    <ng-container *ngIf="login; else noLogged" ><a class="nav-link fs-3 fw-bold" href="#">HELLO,</a></ng-container>
+                   <a class="nav-link fs-3 fw-bold" href="#">HELLO, {{username}}</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-<ng-template #noLogged><a href="#" class="nav-link fs-3 fw-bold">GUEST</a></ng-template>
