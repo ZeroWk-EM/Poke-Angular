@@ -13,7 +13,12 @@ export class AuthService {
   };
   constructor(private http: HttpClient) {}
 
-  register({ name, surname, email, password }: IUser): Observable<IUser> {
+  register(
+    name: string,
+    surname: string,
+    email: string,
+    password: string
+  ): Observable<IUser> {
     return this.http.post<IUser>(
       `${this.authURL}/register`,
       {
@@ -26,7 +31,7 @@ export class AuthService {
     );
   }
 
-  login({ email, password }: IUser): Observable<any> {
+  login(email: string, password: string): Observable<any> {
     return this.http.post(
       `${this.authURL}/login`,
       { email, password },
