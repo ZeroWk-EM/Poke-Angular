@@ -8,6 +8,9 @@ import { HeroComponent } from 'src/components/Hero/hero.component';
 import { RegisterPageComponent } from 'src/page/register-page/register-page.component';
 import { LoginPageComponent } from 'src/page/login-page/login-page.component';
 import { HomePageComponent } from 'src/page/home-page/home-page.component';
+import { LoginFormComponent } from 'src/components/login-form/login-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,8 +20,9 @@ import { HomePageComponent } from 'src/page/home-page/home-page.component';
     HeroComponent,
     RegisterPageComponent,
     LoginPageComponent,
+    LoginFormComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule,HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
