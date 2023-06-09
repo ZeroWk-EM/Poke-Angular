@@ -8,15 +8,16 @@
     alt=""
   />
   <h4>VALIDATION USER PAGE</h4>
-  <form>
+  <form [formGroup]="validateForm" (ngSubmit)="onSubmit()">
     <div class="row my-5">
       <div class="col-12">
         <div class="form-floating mb-3">
           <input
             type="text"
             class="form-control"
-            id="tokenInput"
+            id="id"
             placeholder=" "
+            [(ngModel)]="idValue"
             formControlName="token"
             required
           />
@@ -26,7 +27,7 @@
         </div>
       </div>
       <div class="d-grid gap-2">
-        <button class="btn btn-danger" type="submit">VALIDATE USER</button>
+        <button class="btn btn-danger" type="submit" [disabled]="!validateForm.valid">VALIDATE USER</button>
       </div>
     </div>
   </form>
