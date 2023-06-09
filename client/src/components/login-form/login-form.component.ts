@@ -31,9 +31,10 @@ export class LoginFormComponent implements OnInit {
         next: (response) => {
           localStorage.setItem('fullname', response.fullname);
           localStorage.setItem('token', response.token);
+          window.location.href="/";
         },
         error: (error) => {
-          console.log(error);
+          window.alert(`${String(error.error.message)} or Invalid credentials`);
         },
       });
   }
