@@ -27,8 +27,8 @@ export class ValidateFormComponent implements OnInit {
       next: ({ message }) => {
         window.alert(message);
       },
-      error: (error: GenericMessage) => {
-        window.alert(error.message);
+      error: (error) => {
+        window.alert(error.error.message);
       },
     });
   }
