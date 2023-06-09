@@ -18,7 +18,7 @@ export class AuthService {
     surname: string,
     email: string,
     password: string
-  ): Observable<IUser> {
+  ): Observable<any> {
     return this.http.post<IUser>(
       `${this.authURL}/register`,
       {
