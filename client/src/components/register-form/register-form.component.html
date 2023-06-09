@@ -1,0 +1,73 @@
+<div
+  class="d-flex register-form mt-5 px-5 border border-black border-5 rounded-4 flex-column justify-content-center align-items-center"
+>
+  <img
+    class="my-5"
+    src="../../assets/img/form-pokeball.svg"
+    height="70px"
+    alt=""
+  />
+  <h4>REGISTER PAGE</h4>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="row my-5">
+        <div class="col-12">
+            <div class="text-muted mx-1 mb-2" *ngIf="registerForm.get('name')!.invalid && registerForm.get('name')!.touched">Nome Obbligatorio.</div>
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="nameInput"
+                placeholder=" "
+                formControlName="name"
+                required
+              />
+              <label for="nameInput">Name <span style="color:red">*</span></label>
+            </div>
+          </div>
+        <div class="col-12">
+            <div class="text-muted mx-1 mb-2" *ngIf="registerForm.get('surname')!.invalid && registerForm.get('surname')!.touched">Cognome Obbligatorio.</div>
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="surnameInput"
+                placeholder=" "
+                formControlName="surname"
+                required
+              />
+              <label for="surnameInput">Cognome <span style="color:red">*</span></label>
+            </div>
+          </div>
+      <div class="col-12">
+        <div class="text-muted mx-1 mb-2" *ngIf="registerForm.get('email')!.invalid && registerForm.get('email')!.touched">Email Obbligatoria.</div>
+        <div class="form-floating mb-3">
+          <input
+            type="email"
+            class="form-control"
+            id="emailInput"
+            placeholder="name@example.com"
+            formControlName="email"
+            required
+          />
+          <label for="emailInput">Email address <span style="color:red">*</span></label>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="text-muted mx-1 mb-2" *ngIf="registerForm.get('password')!.invalid && registerForm.get('password')!.touched">Password Obbligatoria.</div>
+        <div class="form-floating mb-3">
+          <input
+            type="password"
+            class="form-control"
+            id="passwordInput"
+            placeholder="#"
+            formControlName="password"
+          />
+          <label for="passwordInput">Password <span style="color:red">*</span></label>
+        </div>
+      </div>
+      <div class="d-grid gap-2">
+        <button class="btn btn-danger" type="submit" [disabled]="!registerForm.valid">Register {{this.registerForm.value.name}} {{this.registerForm.value.surname}}</button>
+      </div>
+    </div>
+  </form>
+</div>
