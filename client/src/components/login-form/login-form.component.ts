@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { GenericMessage } from 'src/models/user';
 import { AuthService } from 'src/service/auth.service';
 
 @Component({
@@ -28,10 +29,11 @@ export class LoginFormComponent implements OnInit {
         String(this.loginForm.value.password)
       )
       .subscribe({
-        next: (response) => {
-          localStorage.setItem('fullname', response.fullname);
-          localStorage.setItem('token', response.token);
-          window.location.href="/";
+        next: ({ data, token }) => {
+          localStorage.setItem('email', data.email);
+          localStorage.setItem('fullname', data.fullname);
+          localStorage.setItem('token', token);
+          window.location.href = '/';
         },
         error: (error) => {
           window.alert(`${String(error.error.message)} or Invalid credentials`);
