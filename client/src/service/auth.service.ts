@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IUser } from 'src/app/interface/user.interface';
+import { GenericMessage, LoginResponse } from 'src/models/user';
 
 @Injectable({
   providedIn: 'root',
@@ -18,8 +19,8 @@ export class AuthService {
     surname: string,
     email: string,
     password: string
-  ): Observable<any> {
-    return this.http.post<IUser>(
+  ): Observable<GenericMessage> {
+    return this.http.post<GenericMessage>(
       `${this.authURL}/register`,
       {
         name,
@@ -31,16 +32,19 @@ export class AuthService {
     );
   }
 
-  login(email: string, password: string): Observable<any> {
-    return this.http.post(
+  login(email: string, password: string): Observable<LoginResponse> {
+    return this.http.post<LoginResponse>(
       `${this.authURL}/login`,
       { email, password },
       this.httpOptions
     );
   }
 
-  validate(token: string): Observable<any> {
-    return this.http.get(`${this.authURL}/validate/${token}`, this.httpOptions);
+  validate(token: string): Observable<GenericMessage> {
+    return this.http.get<GenericMessage>(
+      `${this.authURL}/validate/${token}`,
+      this.httpOptions
+    );
   }
 
   logout(fullname: string, token: string) {
