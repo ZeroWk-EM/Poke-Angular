@@ -15,19 +15,21 @@ import { FavoritePageComponent } from 'src/page/favorite-page/favorite-page.comp
 import { PokedexPageComponent } from 'src/page/pokedex-page/pokedex-page.component';
 import { RegisterFormComponent } from 'src/components/register-form/register-form.component';
 import { ValidePageComponent } from 'src/page/valide-page/valide-page.component';
+import { ValidateFormComponent } from 'src/components/validate-form/validate-form.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomePageComponent,
     HeroComponent,
-    RegisterPageComponent,
-    LoginPageComponent,
-    LoginFormComponent,
     FavoritePageComponent,
     PokedexPageComponent,
+    LoginPageComponent,
+    LoginFormComponent,
+    RegisterPageComponent,
     RegisterFormComponent,
     ValidePageComponent,
+    ValidateFormComponent,
   ],
   imports: [
     BrowserModule,
