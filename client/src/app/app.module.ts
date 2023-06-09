@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FavoritePageComponent } from 'src/page/favorite-page/favorite-page.component';
 import { PokedexPageComponent } from 'src/page/pokedex-page/pokedex-page.component';
 import { ValidateUserComponent } from 'src/page/validate-user/validate-user.component';
+import { RegisterFormComponent } from 'src/components/register-form/register-form.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ValidateUserComponent } from 'src/page/validate-user/validate-user.comp
     FavoritePageComponent,
     PokedexPageComponent,
     ValidateUserComponent,
+    RegisterFormComponent,
   ],
   imports: [
     BrowserModule,
