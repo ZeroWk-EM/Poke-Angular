@@ -16,6 +16,7 @@ import { PokedexPageComponent } from 'src/page/pokedex-page/pokedex-page.compone
 import { RegisterFormComponent } from 'src/components/register-form/register-form.component';
 import { ValidePageComponent } from 'src/page/valide-page/valide-page.component';
 import { ValidateFormComponent } from 'src/components/validate-form/validate-form.component';
+import { PokemonCardComponent } from 'src/components/pokemon-card/pokemon-card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +31,7 @@ import { ValidateFormComponent } from 'src/components/validate-form/validate-for
     RegisterFormComponent,
     ValidePageComponent,
     ValidateFormComponent,
+    PokemonCardComponent,
   ],
   imports: [
     BrowserModule,
