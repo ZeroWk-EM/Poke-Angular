@@ -39,6 +39,10 @@ export class AuthService {
     );
   }
 
+  validate(token: string): Observable<any> {
+    return this.http.get(`${this.authURL}/validate/${token}`, this.httpOptions);
+  }
+
   logout(fullname: string, token: string) {
     localStorage.removeItem(fullname);
     localStorage.removeItem(token);
