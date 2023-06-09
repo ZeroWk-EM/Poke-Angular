@@ -8,7 +8,6 @@ import { Component } from '@angular/core';
 export class ValidePageComponent {
   IsLogged(): boolean {
     const user = localStorage.getItem('fullname') && localStorage.getItem('token');
-
     return !!user;
   }
 }

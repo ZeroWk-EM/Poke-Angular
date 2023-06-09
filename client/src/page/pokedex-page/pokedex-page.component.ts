@@ -26,6 +26,9 @@ export class PokedexPageComponent implements OnInit {
       },
       error: (error) => {
         console.log(error);
+
+   /*      window.alert("Devi essere loggato per fare la chiamata API");
+        window.location.href = "/login"; */
       }
     })
   }
