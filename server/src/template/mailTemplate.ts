@@ -76,7 +76,7 @@ export const VerifyAccount = (token: string): string => {
                                       </table>
                                       <p class="" style="line-height: 24px; font-size: 16px; width: 100%; margin: 0;" align="left">
                                         For validate email, press the follow button or copy this token <br>
-                                        ${token} to <a href="http://localhost:3000/" style="color: #0d6efd;">this link</a>
+                                        ${token} to <a href="http://localhost:4200/validate" style="color: #0d6efd;">this link</a>
                                       </p>
                                       <table class="s-4 w-full" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
                                         <tbody>
@@ -91,7 +91,7 @@ export const VerifyAccount = (token: string): string => {
                                         <tbody>
                                           <tr>
                                             <td style="line-height: 24px; font-size: 16px; border-radius: 6px; font-weight: 700 !important; margin: 0;" align="center" bgcolor="#0d6efd">
-                                              <a style="background-color: #ff1c1c; color: #ffffff; font-size: 16px; font-family: Helvetica, Arial, sans-serif; text-decoration: none; border-radius: 6px; line-height: 20px; display: block; font-weight: 700 !important; white-space: nowrap; padding: 12px; border: 0 solid #0d6efd;" href="https://app.bootstrapemail.com/templates">Visit Website</a>
+                                              <a style="background-color: #ff1c1c; color: #ffffff; font-size: 16px; font-family: Helvetica, Arial, sans-serif; text-decoration: none; border-radius: 6px; line-height: 20px; display: block; font-weight: 700 !important; white-space: nowrap; padding: 12px; border: 0 solid #0d6efd;" href="http://localhost:4200/validate/${token}">Visit Website</a>
                                             </td>
                                           </tr>
                                         </tbody>
