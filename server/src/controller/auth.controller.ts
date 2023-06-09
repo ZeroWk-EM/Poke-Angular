@@ -27,9 +27,7 @@ export const registerUser = async ({ body }: Request, res: Response) => {
         "Valide Email",
         VerifyAccount(String(newUser.verify))
       );
-    return res
-      .status(201)
-      .json({ status: 201, message: "Successfully registered user" });
+    return res.status(201).json({ message: "Successfully registered user" });
   } catch (error) {
     return res.status(400).json(error);
   }
@@ -47,15 +45,21 @@ export const loginUser = async ({ body }: Request, res: Response) => {
           String(process.env.SECRET_KEY)
         );
         return res.status(200).json({
-          fullname: `${user.name} ${user.surname}`,
+          data: {
+            name: user.name,
+            surname: user.surname,
+            fullname: `${user.name} ${user.surname}`,
+            email: user.email,
+          },
           token,
         });
+      } else if (!passwordCompare) {
+        return res.status(403).json({ message: "Wrong email or password" });
       }
-      return res.status(403).json({message: "Wrong email or password"} );
     }
     return res.status(401).json({ message: "User not verified" });
   } catch (error) {
-    return res.status(400).json(error);
+    return res.status(400).json({ message: error });
   }
 };
 
@@ -69,14 +73,12 @@ export const validateUser = async (
       { $unset: { verify: 1 } }
     );
     if (validationUser) {
-      return res
-        .status(200)
-        .json({ message: "User as been validate" });
+      return res.status(200).json({ message: "User as been validate" });
     }
     return res
       .status(400)
       .json({ message: "This token is not associated with any user" });
   } catch (error) {
-    return res.status(400).json({ error_message: error });
+    return res.status(400).json({ message: error });
   }
 };
