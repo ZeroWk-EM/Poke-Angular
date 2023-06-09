@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
+  { path: 'validate', component: ValidePageComponent },
   { path: 'validate/:id', component: ValidePageComponent },
   { path: 'pokedex', component: PokedexPageComponent },
   { path: 'favorite', component: FavoritePageComponent },

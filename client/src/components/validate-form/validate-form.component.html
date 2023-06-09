@@ -1,1 +1,33 @@
-<p>validate-form works!</p>
+<div
+  class="d-flex validate-form mt-5 px-5 border border-black border-5 rounded-4 flex-column justify-content-center align-items-center"
+>
+  <img
+    class="my-5"
+    src="../../assets/img/form-pokeball.svg"
+    height="70px"
+    alt=""
+  />
+  <h4>VALIDATION USER PAGE</h4>
+  <form>
+    <div class="row my-5">
+      <div class="col-12">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="tokenInput"
+            placeholder=" "
+            formControlName="token"
+            required
+          />
+          <label for="tokenInput"
+            >token <span style="color: red">*</span></label
+          >
+        </div>
+      </div>
+      <div class="d-grid gap-2">
+        <button class="btn btn-danger" type="submit">VALIDATE USER</button>
+      </div>
+    </div>
+  </form>
+</div>
