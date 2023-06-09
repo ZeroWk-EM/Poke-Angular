@@ -11,6 +11,9 @@ import { HomePageComponent } from 'src/page/home-page/home-page.component';
 import { LoginFormComponent } from 'src/components/login-form/login-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { FavoritePageComponent } from 'src/page/favorite-page/favorite-page.component';
+import { PokedexPageComponent } from 'src/page/pokedex-page/pokedex-page.component';
+import { ValidateUserComponent } from 'src/page/validate-user/validate-user.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +24,16 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterPageComponent,
     LoginPageComponent,
     LoginFormComponent,
+    FavoritePageComponent,
+    PokedexPageComponent,
+    ValidateUserComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule,HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
