@@ -13,9 +13,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FavoritePageComponent } from 'src/page/favorite-page/favorite-page.component';
 import { PokedexPageComponent } from 'src/page/pokedex-page/pokedex-page.component';
-import { ValidateUserComponent } from 'src/page/validate-user/validate-user.component';
 import { RegisterFormComponent } from 'src/components/register-form/register-form.component';
-
+import { ValidePageComponent } from 'src/page/valide-page/valide-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,8 +26,8 @@ import { RegisterFormComponent } from 'src/components/register-form/register-for
     LoginFormComponent,
     FavoritePageComponent,
     PokedexPageComponent,
-    ValidateUserComponent,
     RegisterFormComponent,
+    ValidePageComponent,
   ],
   imports: [
     BrowserModule,
