@@ -1,1 +1,9 @@
-<p>pokedex-page works!</p>
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let pokemon of pokemons">
+            <app-pokemon-card [name]="pokemon.name" [img]="pokemon.front_default" [types]="pokemon.types" [weight]="pokemon.weight"></app-pokemon-card>
+        </ng-container>
+    </div>
+</div>
+<button (click)="setCurrentPage(currentPage-1)" [disabled]="currentPage === 1">page -</button>
+<button (click)="setCurrentPage(currentPage+1)" [disabled]="currentPage === totalPage">page +</button>
