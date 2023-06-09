@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { GenericMessage } from 'src/models/user';
 import { AuthService } from 'src/service/auth.service';
 
 @Component({
@@ -32,11 +33,13 @@ export class RegisterFormComponent implements OnInit {
         String(this.registerForm.value.password)
       )
       .subscribe({
-        next: (response) => {
-          window.alert(`${String(response.message)}, check your email for validate your account`)
+        next: ({ message }) => {
+          window.alert(
+            `${String(message)}, check your email for validate your account`
+          );
         },
         error: (error) => {
-          window.alert(String(error.error.message))
+          window.alert(String(error.error.message));
         },
       });
   }

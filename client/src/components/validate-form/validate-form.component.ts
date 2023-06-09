@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/service/auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { GenericMessage } from 'src/models/user';
 
 @Component({
   selector: 'app-validate-form',
@@ -23,11 +24,11 @@ export class ValidateFormComponent implements OnInit {
   }
   onSubmit() {
     this.authService.validate(String(this.idValue)).subscribe({
-      next: (response) => {
-        window.alert(response.message)
+      next: ({ message }) => {
+        window.alert(message);
       },
-      error: (error) => {
-        window.alert(error.error.message);
+      error: (error: GenericMessage) => {
+        window.alert(error.message);
       },
     });
   }
