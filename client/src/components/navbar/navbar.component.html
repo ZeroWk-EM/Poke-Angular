@@ -12,9 +12,17 @@
                     <a class="nav-link fs-3 fw-bold" href="#favorites">FAVORITE</a>
                 </li>
                 <li class="nav-item px-4">
-                   <a class="nav-link fs-3 fw-bold" href="#">HELLO, {{username}}</a>
+                   <a class="nav-link fs-3 fw-bold" href="#">HELLO {{ username }}</a>
                 </li>
+               <ng-container *ngIf="getStatus(); else noLogged">
+               <button (click)="exit()">ESCI PUSSY</button>
+               </ng-container>
             </ul>
         </div>
     </div>
 </nav>
+
+<ng-template #noLogged>
+  <p>NON LOGGATO</p>
+</ng-template>
+  
