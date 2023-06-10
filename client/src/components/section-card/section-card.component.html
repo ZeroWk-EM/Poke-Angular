@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="card bg-card my-5 py-5 w-100">
+            <div class="d-flex align-items-center" [class.flex-row-reverse]="section?.reverseRow">
+                <div class="bg-light img-container rounded-5">
+                    <img [src]="section?.icon" class="w-100 h-100 rounded-5" alt="not found" />
+                </div>
+                <div class="d-flex flex-column align-items-center w-75">
+                    <p class="card-text text-light fs-1 fw-bold pt-3" [id]="section?.route">{{section?.title}}</p>
+                    <p class="card-text text-light fs-6 fw-bold pt-3">{{section?.description}}</p>
+                    <div class="pt-2 pb-5">
+                        <a class="btn bg-button fw-bold" [routerLink]="section?.route">{{section?.button}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -17,6 +17,7 @@ import { RegisterFormComponent } from 'src/components/register-form/register-for
 import { ValidePageComponent } from 'src/page/valide-page/valide-page.component';
 import { ValidateFormComponent } from 'src/components/validate-form/validate-form.component';
 import { PokemonCardComponent } from 'src/components/pokemon-card/pokemon-card.component';
+import { SectionCardComponent } from 'src/components/section-card/section-card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,7 @@ import { PokemonCardComponent } from 'src/components/pokemon-card/pokemon-card.c
     ValidePageComponent,
     ValidateFormComponent,
     PokemonCardComponent,
+    SectionCardComponent,
   ],
   imports: [
     BrowserModule,
