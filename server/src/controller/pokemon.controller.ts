@@ -27,7 +27,10 @@ export const getPokemon = async (req: Request, res: Response) => {
         front_default,
         types: types.map(({ type: { name } }) => name).join(),
         weight,
-        stats: stats.map((item) => ({[item.stat.name]:item.base_stat}))
+        stats: stats.map((item) => ({
+          stats_name: item.stat.name,
+          basic_stat: item.base_stat,
+        })),
       })
     );
     res
