@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./valide-page.component.css'],
 })
 export class ValidePageComponent {
-  IsLogged(): boolean {
+/*   IsLogged(): boolean {
     const user = localStorage.getItem('fullname') && localStorage.getItem('token');
     return !!user;
-  }
+  } */
 }

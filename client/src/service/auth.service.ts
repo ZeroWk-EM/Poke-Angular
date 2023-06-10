@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { IUser } from 'src/app/interface/user.interface';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { GenericMessage, LoginResponse } from 'src/models/user';
 
 @Injectable({
@@ -9,10 +8,16 @@ import { GenericMessage, LoginResponse } from 'src/models/user';
 })
 export class AuthService {
   private authURL = `http://localhost:5000/v1/auth`;
+
+  user = new BehaviorSubject<string>('GUEST');
+
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
-  constructor(private http: HttpClient) {}
+
+  constructor(private http: HttpClient) {
+    this.user.next(localStorage.getItem('fullname') || 'GUEST');
+  }
 
   register(
     name: string,
@@ -47,8 +52,9 @@ export class AuthService {
     );
   }
 
-  logout(fullname: string, token: string) {
-    localStorage.removeItem(fullname);
-    localStorage.removeItem(token);
+  logout() {
+    localStorage.removeItem('email');
+    localStorage.removeItem('fullname');
+    localStorage.removeItem('token');
   }
 }

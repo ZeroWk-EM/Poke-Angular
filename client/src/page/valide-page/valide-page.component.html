@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="d-flex justify-content-center align-items-center mt-5">
-        <ng-container *ngIf="IsLogged(); else noLogged">
+<!--         <ng-container *ngIf="IsLogged(); else noLogged">
           <div
             class="d-flex validate-form mt-5 px-5 border border-black border-5 rounded-4 flex-column justify-content-center align-items-center"
           >
@@ -14,12 +14,11 @@
             />
             <h4 class="mb-4">Already verified user</h4>
           </div>
-        </ng-container>
+        </ng-container> -->
+        <app-validate-form></app-validate-form>
       </div>
     </div>
   </div>
 </div>
 
-<ng-template #noLogged>
-  <app-validate-form></app-validate-form>
-</ng-template>
+

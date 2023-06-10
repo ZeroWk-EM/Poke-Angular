@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 import { GenericMessage } from 'src/models/user';
 import { AuthService } from 'src/service/auth.service';
 
@@ -10,7 +11,7 @@ import { AuthService } from 'src/service/auth.service';
 })
 export class LoginFormComponent implements OnInit {
   loginForm!: FormGroup;
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private route: Router) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -33,7 +34,8 @@ export class LoginFormComponent implements OnInit {
           localStorage.setItem('email', data.email);
           localStorage.setItem('fullname', data.fullname);
           localStorage.setItem('token', token);
-          window.location.href = '/';
+          this.authService.user.next(data.fullname);
+          this.route.navigate([""])
         },
         error: (error) => {
           window.alert(`${String(error.error.message)} or Invalid credentials`);
