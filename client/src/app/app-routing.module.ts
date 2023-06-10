@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'validate', component: ValidePageComponent },
   { path: 'validate/:id', component: ValidePageComponent },
   { path: 'pokedex', component: PokedexPageComponent },
-  { path: 'favorite', component: FavoritePageComponent },
+  { path: 'favorites', component: FavoritePageComponent },
 ];
 
 @NgModule({
