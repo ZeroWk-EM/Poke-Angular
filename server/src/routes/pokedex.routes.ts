@@ -6,5 +6,5 @@ const router = express.Router();
 router.use(express.json());
 
 router.get("/", getPokemon);
-router.get(":name", getPokemonByName);
+router.get("/:name", getPokemonByName);
 export default router;

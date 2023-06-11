@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Pokemon } from 'src/models/pokedex';
+import { Pokemon, Stats } from 'src/models/pokedex';
 
 @Component({
   selector: 'app-pokemon-card',
@@ -11,15 +11,21 @@ export class PokemonCardComponent {
   @Input() types: string = '';
   @Input() weight: number = 0;
   @Input() img: string = '';
+  @Input() stats: Stats[] = [{
+    stats_name: 'pokemon',
+    basic_stat: 0
+  }];
+
 
   @Output() selectPokemon = new EventEmitter<Pokemon>();
 
-  fun = () => {
+  dataModal = () => {
     this.selectPokemon.emit({
       name: this.name,
       types: this.types,
       weight: this.weight,
       front_default: this.img,
+      stats: this.stats
     });
   };
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { elementAt } from 'rxjs';
 import { Pokemon } from 'src/models/pokedex';
 import { PokedexService } from 'src/service/pokedex.service';
 
@@ -15,7 +16,7 @@ export class PokedexPageComponent implements OnInit {
   selectedPokemon:Pokemon | undefined;
   
   constructor(private pokedexService: PokedexService) {}
-
+  
   ngOnInit(): void {
     this.getPokemon();
   }
