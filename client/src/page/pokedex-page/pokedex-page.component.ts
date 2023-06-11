@@ -12,6 +12,8 @@ export class PokedexPageComponent implements OnInit {
   pokemons: Pokemon[] = [];
   totalPage: number = 0;
 
+  selectedPokemon:Pokemon | undefined;
+  
   constructor(private pokedexService: PokedexService) {}
 
   ngOnInit(): void {
