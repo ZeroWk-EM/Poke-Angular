@@ -8,5 +8,11 @@ export interface Pokemon {
     front_default: string;
     types: string;
     weight: number;
+    stats?: Stats[];
+}
+
+export interface Stats {
+    stats_name: string;
+    basic_stat: number;
 }
   

@@ -61,6 +61,6 @@ export const getPokemonByName = async (req: Request, res: Response) => {
       return res.status(200).json({ result: pokemon, id: response.data.id });
     }
   } catch (error) {
-    return res.status(404).json({ message: "Pokemon non found" });
+      return res.status(404).json({ message: "Pokemon not found" });
   }
 };
