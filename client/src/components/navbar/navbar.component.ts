@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/service/auth.service';
 @Component({
@@ -11,7 +12,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   username: string = '';
   usernameSubscription$: Subscription | undefined;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService,private route:Router) {}
 
   ngOnInit(): void {
     this.usernameSubscription$ = this.authService.user.subscribe({
@@ -28,6 +29,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   exit() {
     this.authService.logout();
     this.authService.user.next('GUEST');
+    this.route.navigate([""]);
   }
 
   ngOnDestroy(): void {
