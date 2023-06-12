@@ -4,10 +4,12 @@ import { HeroComponent } from 'src/components/Hero/hero.component';
 import { FavoritePageComponent } from 'src/page/favorite-page/favorite-page.component';
 import { HomePageComponent } from 'src/page/home-page/home-page.component';
 import { LoginPageComponent } from 'src/page/login-page/login-page.component';
+import { NotFoundPageComponent } from 'src/page/not-found-page/not-found-page.component';
 import { PokedexPageComponent } from 'src/page/pokedex-page/pokedex-page.component';
 import { RegisterPageComponent } from 'src/page/register-page/register-page.component';
 import { ValidePageComponent } from 'src/page/valide-page/valide-page.component';
 import { authGuard } from 'src/service/auth.guard';
+
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'login', canActivate: [authGuard], component: LoginPageComponent },
@@ -36,6 +38,14 @@ const routes: Routes = [
     canActivate: [authGuard],
     component: FavoritePageComponent,
   },
+  {
+    path: '404',
+    component: NotFoundPageComponent,
+  },
+  {
+    path: '**', redirectTo: ''
+  },
+
 ];
 
 @NgModule({
