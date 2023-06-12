@@ -34,20 +34,27 @@ export class PokedexPageComponent implements OnInit {
       },
       error: (error) => {
         console.log(error);
-
-        /*      window.alert("Devi essere loggato per fare la chiamata API");
-        window.location.href = "/login"; */
       },
     });
   };
 
+  getCurrentPage= ()=>{
+    return this.totalPage;
+  }
+
   setCurrentPage = (page: number) => {
     this.currentPage = page;
     this.getPokemon();
+    window.scroll({ 
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth' 
+});
   };
 
   searchPokemon() {
-    this.pokedexService.searchPokemon(this.searchForm.value.pokemonName).subscribe({
+    const pokemonToSearch=String(this.searchForm.value.pokemonName).toLowerCase();
+    this.pokedexService.searchPokemon(pokemonToSearch).subscribe({
       next: (response) => {
         this.pokemons = response.results;
         this.totalPage = response.totalPage;
