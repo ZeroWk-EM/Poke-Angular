@@ -19,4 +19,10 @@ export class PokedexService {
       { headers: header } */
     );
   };
+
+  searchPokemon(name: string): Observable<ResponsePokedex> {
+    return this.http.get<ResponsePokedex>(
+      `http://localhost:5000/v1/pokedex/${name}`
+    );
+  }
 }

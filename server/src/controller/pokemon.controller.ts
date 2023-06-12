@@ -50,7 +50,7 @@ export const getPokemonByName = async (req: Request, res: Response) => {
     if (response) {
       const pokemon = {
         name: response.data.name,
-        sprites: response.data.sprites.front_default,
+        front_default: response.data.sprites.front_default,
         types: response.data.types.map(({ type: { name } }) => name).join(),
         weight: response.data.weight,
         stats: response.data.stats.map((item) => ({
@@ -58,7 +58,7 @@ export const getPokemonByName = async (req: Request, res: Response) => {
           basic_stat: item.base_stat,
         })),
       };
-      return res.status(200).json({ result: pokemon, id: response.data.id });
+      return res.status(200).json({ results: [pokemon], totalPage:1,id: response.data.id });
     }
   } catch (error) {
       return res.status(404).json({ message: "Pokemon not found" });
