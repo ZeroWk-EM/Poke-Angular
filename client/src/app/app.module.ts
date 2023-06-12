@@ -20,9 +20,9 @@ import { PokemonCardComponent } from 'src/components/pokemon-card/pokemon-card.c
 import { SectionCardComponent } from 'src/components/section-card/section-card.component';
 import { AuthService } from 'src/service/auth.service';
 import { authGuard } from 'src/service/auth.guard';
-import { NotFoundError } from 'rxjs';
 import { NotFoundPageComponent } from 'src/page/not-found-page/not-found-page.component';
 import { FooterComponent } from 'src/components/footer/footer.component';
+import { PersonalPageComponent } from 'src/page/personal-page/personal-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +40,8 @@ import { FooterComponent } from 'src/components/footer/footer.component';
     PokemonCardComponent,
     SectionCardComponent,
     NotFoundPageComponent,
-    FooterComponent
+    FooterComponent,
+    PersonalPageComponent,
   ],
   imports: [
     BrowserModule,
