@@ -1,21 +1,23 @@
 import { Injectable } from '@angular/core';
 import {
+  CanActivate,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
   Router,
   UrlTree,
 } from '@angular/router';
+import { AuthService } from './auth.service';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class authGuard {
-  constructor(private router: Router) {}
+export class authGuard implements CanActivate {
+  constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
-    _: RouterStateSnapshot
+    state: RouterStateSnapshot
   ):
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree>
@@ -27,7 +29,7 @@ export class authGuard {
       return ['login', 'register', 'validate'].includes(path);
     });
 
-    // ED ESEMPIO QUANDO SIAMO SU POKEDEX O FAVORITE PERCHè ESCLUDIAMO QUELLE SOPRA
+    // ED ESEMPIO QUANDO SIAMO SU POKEDEX O FAVORITE PERCHÈ ESCLUDIAMO QUELLE SOPRA
     if (isProtectedRoute) {
       if (localStorage.getItem('token')) {
         return true;
