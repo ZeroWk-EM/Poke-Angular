@@ -1,12 +1,51 @@
 <div class="container">
-    <div class="row">
-        <div *ngFor="let pokemon of pokemons" data-bs-toggle="modal" data-bs-target="#pokemonModal">
-            <app-pokemon-card [name]="pokemon.name" [img]="pokemon.front_default" [types]="pokemon.types" [weight]="pokemon.weight" [stats]="pokemon.stats || []" (selectPokemon)="selectedPokemon=$event"></app-pokemon-card>
+  <div class="row">
+    <div class="d-flex justify-content-between align-items-center mt-5 ">
+      <h2>POKEDEX</h2>
+      <form [formGroup]="searchForm" (ngSubmit)="searchPokemon()">
+        <div class="d-flex gap-3">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              id="floatingInput"
+              placeholder="Ditto"
+              formControlName="pokemonName"
+            />
+            <label for="floatingInput">Search Pokemon</label>
+          </div>
+          <button type="submit" class="btn btn-warning">Search</button>
         </div>
+      </form>
     </div>
+    <div
+      *ngFor="let pokemon of pokemons"
+      data-bs-toggle="modal"
+      data-bs-target="#pokemonModal"
+    >
+      <app-pokemon-card
+        [name]="pokemon.name"
+        [img]="pokemon.front_default"
+        [types]="pokemon.types"
+        [weight]="pokemon.weight"
+        [stats]="pokemon.stats || []"
+        (selectPokemon)="selectedPokemon = $event"
+      ></app-pokemon-card>
+    </div>
+  </div>
 </div>
-<button (click)="setCurrentPage(currentPage-1)" [disabled]="currentPage === 1">page -</button>
-<button (click)="setCurrentPage(currentPage+1)" [disabled]="currentPage === totalPage">page +</button>
+<button
+  (click)="setCurrentPage(currentPage - 1)"
+  [disabled]="currentPage === 1"
+>
+  page -
+</button>
+<button
+  (click)="setCurrentPage(currentPage + 1)"
+  [disabled]="currentPage === totalPage"
+>
+  page +
+</button>
 
 <div
   class="modal fade"
@@ -18,7 +57,9 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content bg-modal">
       <div class="modal-header">
-        <h1 class="modal-title fs-5 text-light" id="exampleModalLabel">{{selectedPokemon?.name | titlecase}}</h1>
+        <h1 class="modal-title fs-5 text-light" id="exampleModalLabel">
+          {{ selectedPokemon?.name | titlecase }}
+        </h1>
         <button
           type="button"
           class="btn-close"
@@ -28,16 +69,26 @@
       </div>
       <div class="modal-body">
         <div class="bg-light img-container rounded-5 d-flex">
-          <img [src]="selectedPokemon?.front_default" class="w-100 h-100 rounded-5" alt="not found" />
+          <img
+            [src]="selectedPokemon?.front_default"
+            class="w-100 h-100 rounded-5"
+            alt="not found"
+          />
         </div>
-        <p class="card-text text-light fs-4 fw-bold pt-3">Types: {{ selectedPokemon?.types }}</p>
+        <p class="card-text text-light fs-4 fw-bold pt-3">
+          Types: {{ selectedPokemon?.types }}
+        </p>
         <p class="card-text text-light fs-4 fw-bold pt-3 pb-5">
           Weight: {{ selectedPokemon?.weight }}
         </p>
         <div *ngFor="let element of selectedPokemon?.stats">
-          <p class="text-light fs-4 fw-bold"><span class="color-stats">{{element.stats_name | titlecase }}:</span> {{element.basic_stat}}</p>
+          <p class="text-light fs-4 fw-bold">
+            <span class="color-stats"
+              >{{ element.stats_name | titlecase }}:</span
+            >
+            {{ element.basic_stat }}
+          </p>
         </div>
-        
       </div>
     </div>
   </div>
