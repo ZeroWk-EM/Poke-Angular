@@ -1,0 +1,22 @@
+<div class="bg-notfound">
+  <div class="">
+    <div
+      class="d-flex justify-content-center align-items-center flex-column w-bg-notfound"
+    >
+      <div class="bg-card rounded-5 p-5 fw-bold">
+        <div
+          class="d-flex justify-content-center align-items-center flex-column text-white"
+        >
+          <div class="">Nome: {{ name }}</div>
+          <div class="">Cognome: {{ surname }}</div>
+          <div class="">email: {{ email }}</div>
+          <div class="mt-5">
+            <ng-container *ngIf="name === 'Emanuele' && surname === 'Moncada'">
+              <p class="text-warning">TU SEI UN SIGNORE</p>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
