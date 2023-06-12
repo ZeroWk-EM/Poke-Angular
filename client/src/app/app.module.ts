@@ -20,6 +20,8 @@ import { PokemonCardComponent } from 'src/components/pokemon-card/pokemon-card.c
 import { SectionCardComponent } from 'src/components/section-card/section-card.component';
 import { AuthService } from 'src/service/auth.service';
 import { authGuard } from 'src/service/auth.guard';
+import { NotFoundError } from 'rxjs';
+import { NotFoundPageComponent } from 'src/page/not-found-page/not-found-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +38,7 @@ import { authGuard } from 'src/service/auth.guard';
     ValidateFormComponent,
     PokemonCardComponent,
     SectionCardComponent,
+    NotFoundPageComponent
   ],
   imports: [
     BrowserModule,
