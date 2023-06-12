@@ -7,39 +7,65 @@
     height="70px"
     alt=""
   />
-  <h4>REGISTER PAGE</h4>
+  <h4>SIGN UP</h4>
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <div class="row my-5">
-        <div class="col-12">
-            <div class="text-muted mx-1 mb-2" *ngIf="registerForm.get('name')!.invalid && registerForm.get('name')!.touched">Nome Obbligatorio.</div>
-            <div class="form-floating mb-3">
-              <input
-                type="text"
-                class="form-control"
-                id="nameInput"
-                placeholder=" "
-                formControlName="name"
-                required
-              />
-              <label for="nameInput">Name <span style="color:red">*</span></label>
-            </div>
-          </div>
-        <div class="col-12">
-            <div class="text-muted mx-1 mb-2" *ngIf="registerForm.get('surname')!.invalid && registerForm.get('surname')!.touched">Cognome Obbligatorio.</div>
-            <div class="form-floating mb-3">
-              <input
-                type="text"
-                class="form-control"
-                id="surnameInput"
-                placeholder=" "
-                formControlName="surname"
-                required
-              />
-              <label for="surnameInput">Cognome <span style="color:red">*</span></label>
-            </div>
-          </div>
+    <div class="row my-5 flex-column">
       <div class="col-12">
-        <div class="text-muted mx-1 mb-2" *ngIf="registerForm.get('email')!.invalid && registerForm.get('email')!.touched">Email Obbligatoria.</div>
+        <div
+          class="text-muted mx-1 mb-2"
+          *ngIf="
+            registerForm.get('name')!.invalid &&
+            registerForm.get('name')!.touched
+          "
+        >
+          Nome Obbligatorio.
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="nameInput"
+            placeholder=" "
+            formControlName="name"
+            required
+          />
+          <label for="nameInput">Name <span style="color: red">*</span></label>
+        </div>
+      </div>
+      <div class="col-12">
+        <div
+          class="text-muted mx-1 mb-2"
+          *ngIf="
+            registerForm.get('surname')!.invalid &&
+            registerForm.get('surname')!.touched
+          "
+        >
+          Cognome Obbligatorio.
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            id="surnameInput"
+            placeholder=" "
+            formControlName="surname"
+            required
+          />
+          <label for="surnameInput"
+            >Cognome <span style="color: red">*</span></label
+          >
+        </div>
+      </div>
+      <div class="col-12">
+        <div
+          class="text-muted mx-1 mb-2"
+          *ngIf="
+            registerForm.get('email')!.invalid &&
+            registerForm.get('email')!.touched
+          "
+        >
+          Email Obbligatoria.
+        </div>
         <div class="form-floating mb-3">
           <input
             type="email"
@@ -49,11 +75,21 @@
             formControlName="email"
             required
           />
-          <label for="emailInput">Email address <span style="color:red">*</span></label>
+          <label for="emailInput"
+            >Email address <span style="color: red">*</span></label
+          >
         </div>
       </div>
       <div class="col-12">
-        <div class="text-muted mx-1 mb-2" *ngIf="registerForm.get('password')!.invalid && registerForm.get('password')!.touched">Password Obbligatoria.</div>
+        <div
+          class="text-muted mx-1 mb-2"
+          *ngIf="
+            registerForm.get('password')!.invalid &&
+            registerForm.get('password')!.touched
+          "
+        >
+          Password Obbligatoria.
+        </div>
         <div class="form-floating mb-3">
           <input
             type="password"
@@ -62,11 +98,22 @@
             placeholder="#"
             formControlName="password"
           />
-          <label for="passwordInput">Password <span style="color:red">*</span></label>
+          <label for="passwordInput"
+            >Password <span style="color: red">*</span></label
+          >
         </div>
       </div>
       <div class="d-grid gap-2">
-        <button class="btn btn-danger" type="submit" [disabled]="!registerForm.valid">Register {{this.registerForm.value.name}} {{this.registerForm.value.surname}}</button>
+        <button
+          class="btn btn-danger"
+          type="submit"
+          [disabled]="!registerForm.valid"
+        >
+          SIGN UP
+        </button>
+      </div>
+      <div class="footer-text mt-4">
+        <p>If you are already registered, please <a routerLink="/login">login</a></p>
       </div>
     </div>
   </form>
