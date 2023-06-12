@@ -22,3 +22,8 @@
     align-items: center;
     color: white;
 }
+
+.bg-button:hover {
+    background-color: #f7cb15;
+    color: #ff1c1c;
+}
