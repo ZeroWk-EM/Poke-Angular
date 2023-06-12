@@ -22,6 +22,7 @@ import { AuthService } from 'src/service/auth.service';
 import { authGuard } from 'src/service/auth.guard';
 import { NotFoundError } from 'rxjs';
 import { NotFoundPageComponent } from 'src/page/not-found-page/not-found-page.component';
+import { FooterComponent } from 'src/components/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import { NotFoundPageComponent } from 'src/page/not-found-page/not-found-page.co
     ValidateFormComponent,
     PokemonCardComponent,
     SectionCardComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
