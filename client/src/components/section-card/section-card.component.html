@@ -1,8 +1,8 @@
 <div class="container"> 
-    <div class="mx-2 card bg-card my-5 py-5 w-100 ">
+    <div class=" card bg-card my-5 py-5 w-100 ">
         <div class="row d-flex align-items-center justify-content-center" [class.flex-row-reverse]="section?.reverseRow">
-            <div class="col-lg-8 bg-light img-container rounded-5 align-items-center justify-content-center">
-                <img [src]="section?.icon" class="w-100 h-100 rounded-5" alt="not found" />
+            <div class="col-lg-8 bg-light d-flex img-container rounded-5 align-items-center justify-content-center">
+                <img [src]="section?.icon" class="rounded-5" alt="not found" width="150px"/>
             </div>
             <div class="col d-flex flex-column align-items-center w-75">
                 <p class="card-text text-light fs-1 fw-bold pt-3" [id]="section?.route">{{section?.title}}</p>

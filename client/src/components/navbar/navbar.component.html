@@ -1,28 +1,53 @@
-<nav class="navbar navbar-expand-lg bg-warning">
-    <div class="d-flex justify-content-between w-100">
-        <div class="ms-5 w-25 h-25 p-3" routerLink="">
-            <img src="./../../assets/img/AngulPokemon.svg" class="w-100 h-100" style="cursor: pointer;" />
-        </div>
-        <div class="collapse navbar-collapse justify-content-end p-3 me-5" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-5">
-                <li class="nav-item px-4">
-                    <a class="nav-link fs-3 fw-bold" aria-current="page" href="#pokedex">POKEDEX</a>
-                </li>
-                <li class="nav-item px-4">
-                    <a class="nav-link fs-3 fw-bold" href="#favorites">FAVORITE</a>
-                </li>
-                <li class="nav-item px-4">
-                   <a class="nav-link fs-3 fw-bold" href="#">HELLO {{ username }}</a>
-                </li>
-               <ng-container *ngIf="getStatus(); else noLogged">
-               <button (click)="exit()">ESCI PUSSY</button>
-               </ng-container>
-            </ul>
-        </div>
+<nav class="navbar navbar-expand-lg bg-warning" style="min-height: 100px">
+  <div class="container">
+    <img
+      routerLink=""
+      src="./../../assets/img/poke-angular-logo.svg"
+      height="50px"
+      style="cursor: pointer"
+    />
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto" style="line-height: 1">
+        <li class="nav-item px-4 py-3">
+          <a class="nav-link fs-4 fw-bold" aria-current="page" href="#pokedex"
+            >POKEDEX</a
+          >
+        </li>
+        <li class="nav-item px-4 py-3">
+          <a class="nav-link fs-4 fw-bold" href="#favorites">FAVORITE</a>
+        </li>
+        <li class="nav-item px-4 py-3">
+          <a class="nav-link fs-4 fw-bold" href="#"
+            >HELLO {{ username | uppercase }}</a
+          >
+        </li>
+        <ng-container *ngIf="getStatus(); else noLogged">
+          <li class="nav-item px-4 py-3">
+            <a type="button" class="btn btn-outline-dark" (click)="exit()"
+              >EXIT PUSSY</a
+            >
+          </li>
+        </ng-container>
+      </ul>
     </div>
+  </div>
 </nav>
 
 <ng-template #noLogged>
-  <p>NON LOGGATO</p>
+  <li class="nav-item px-4 py-3">
+    <a type="button" class="btn btn-outline-dark" routerLink="/register"
+      >SIGN UP</a
+    >
+  </li>
 </ng-template>
-  
