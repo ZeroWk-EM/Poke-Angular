@@ -25,7 +25,7 @@
     >
       <app-pokemon-card
         [name]="pokemon.name"
-        [img]="pokemon.front_default"
+        [img]="pokemon?.front_default || 'https://cdn.donmai.us/original/b9/63/b963e8cee9021d430a34ad487ace16c6.png'"
         [types]="pokemon.types"
         [weight]="pokemon.weight"
         [stats]="pokemon.stats || []"
@@ -44,7 +44,7 @@
             class="btn btn-dark"
             type="button"
             (click)="setCurrentPage(1)"
-            [disabled]="currentPage===1"
+            [disabled]="currentPage === 1"
           >
             First Page
           </button>
@@ -77,9 +77,29 @@
             Last Page
           </button>
         </div>
+        <div class="col-12  mt-3 mb-5">
+          <form [formGroup]="jumpPageForm" (ngSubmit)="jumpPage()">
+            <div class="d-flex gap-3 justify-content-center align-items-center">
+              <div class="form-floating">
+                <input
+                  type="number"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder=1
+                  min=1
+                  [max]=totalPage
+                  formControlName="jumpPage"
+                />
+                <label for="floatingInput">page</label>
+              </div>
+              <button type="submit" class="btn btn-warning" style="min-height: 58px;">Jump To</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
+
 </ng-container>
 
 <ng-template #nothing> </ng-template>
@@ -88,12 +108,12 @@
   class="modal fade"
   id="pokemonModal"
   tabindex="-1"
-  aria-labelledby="exampleModalLabel"
+  aria-labelledby="pokemonModalLabel"
   aria-hidden="true"
 >
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content bg-modal">
-      <div class="modal-header">
+    <div class="modal-content bg-modal rounded-5">
+      <div class="modal-header" style="border-bottom: none;">
         <h1 class="modal-title fs-5 text-light" id="exampleModalLabel">
           {{ selectedPokemon?.name | titlecase }}
         </h1>
@@ -102,29 +122,34 @@
           class="btn-close"
           data-bs-dismiss="modal"
           aria-label="Close"
+          style="filter: invert(1);"
         ></button>
       </div>
       <div class="modal-body">
-        <div class="bg-light img-container rounded-5 d-flex">
-          <img
-            [src]="selectedPokemon?.front_default"
-            class="w-100 h-100 rounded-5"
-            alt="not found"
-          />
+        <div class="d-flex justify-content-center align-items-center">
+          <div class="bg-light img-container rounded-5 d-flex">
+            <img
+              [src]="selectedPokemon?.front_default || 'https://cdn.donmai.us/original/b9/63/b963e8cee9021d430a34ad487ace16c6.png'"
+              class="rounded-5"
+              alt="not found"
+            />
+          </div>
+          <div class="text">
+            <p class="card-text text-light fs-4 fw-bold pt-3">
+              Types: {{ selectedPokemon?.types }}
+            </p>
+            <p class="card-text text-light fs-4 fw-bold pt-3 pb-5">
+              Weight: {{ selectedPokemon?.weight }}
+            </p>
+          </div>
         </div>
-        <p class="card-text text-light fs-4 fw-bold pt-3">
-          Types: {{ selectedPokemon?.types }}
-        </p>
-        <p class="card-text text-light fs-4 fw-bold pt-3 pb-5">
-          Weight: {{ selectedPokemon?.weight }}
-        </p>
-        <div *ngFor="let element of selectedPokemon?.stats">
-          <p class="text-light fs-4 fw-bold">
-            <span class="color-stats"
-              >{{ element.stats_name | titlecase }}:</span
-            >
-            {{ element.basic_stat }}
-          </p>
+        <h2 class="my-4 text-white text-center" >BASIC STATS</h2>
+        <div class="d-flex flex-wrap text-center">
+          <div *ngFor="let element of selectedPokemon?.stats" class="col-6">
+            <p class="text-light fs-4 fw-bold">
+              <span class="color-stats">{{ element.stats_name | titlecase }}</span>: {{ element.basic_stat }}
+            </p>
+          </div>
         </div>
       </div>
     </div>

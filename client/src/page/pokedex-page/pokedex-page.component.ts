@@ -15,7 +15,8 @@ export class PokedexPageComponent implements OnInit {
   totalPage: number = 0;
 
   selectedPokemon: Pokemon | undefined;
-  searchForm!: FormGroup ;
+  searchForm!: FormGroup;
+  jumpPageForm!: FormGroup;
 
   constructor(private pokedexService: PokedexService) {}
 
@@ -23,7 +24,10 @@ export class PokedexPageComponent implements OnInit {
     this.getPokemon();
     this.searchForm = new FormGroup({
       pokemonName: new FormControl('', Validators.required),
-    })
+    });
+    this.jumpPageForm = new FormGroup({
+      jumpPage: new FormControl(1, Validators.required),
+    });
   }
 
   getPokemon = () => {
@@ -38,31 +42,39 @@ export class PokedexPageComponent implements OnInit {
     });
   };
 
-  getCurrentPage= ()=>{
+  getCurrentPage = () => {
     return this.totalPage;
-  }
+  };
 
   setCurrentPage = (page: number) => {
     this.currentPage = page;
     this.getPokemon();
-    window.scroll({ 
-      top: 0, 
-      left: 0, 
-      behavior: 'smooth' 
-});
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
   };
 
   searchPokemon() {
-    const pokemonToSearch=String(this.searchForm.value.pokemonName).toLowerCase();
+    const pokemonToSearch = String(
+      this.searchForm.value.pokemonName
+    ).toLowerCase();
     this.pokedexService.searchPokemon(pokemonToSearch).subscribe({
       next: (response) => {
         this.pokemons = response.results;
         this.totalPage = response.totalPage;
-        this.currentPage = 1
+        this.currentPage = 1;
       },
-      error: (error) => {
-        
-      },
+      error: (error) => {},
     });
+  }
+
+  jumpPage() {
+    let pageToJump=Number(this.jumpPageForm.value.jumpPage)
+    if(pageToJump>this.totalPage){
+      pageToJump=this.totalPage;
+    };
+    this.setCurrentPage(pageToJump);
   }
 }
