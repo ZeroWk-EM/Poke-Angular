@@ -15,7 +15,7 @@ app.get("/", (_: Request, res: Response) => {
     status: 200,
     message: "Server is running",
     endpoint: [
-      "/v1/pokemon"
+      "/v1/pokedex"
     ],
   });
 });
