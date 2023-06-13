@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { elementAt } from 'rxjs';
+import { Router } from '@angular/router';
 import { Pokemon } from 'src/models/pokedex';
 import { PokedexService } from 'src/service/pokedex.service';
 
@@ -18,7 +18,7 @@ export class PokedexPageComponent implements OnInit {
   searchForm!: FormGroup;
   jumpPageForm!: FormGroup;
 
-  constructor(private pokedexService: PokedexService) {}
+  constructor(private pokedexService: PokedexService, private routeNav:Router) {}
 
   ngOnInit(): void {
     this.getPokemon();
@@ -37,7 +37,10 @@ export class PokedexPageComponent implements OnInit {
         this.totalPage = totalPage;
       },
       error: (error) => {
-        console.log(error);
+       if(error.status === 401){
+        window.alert("Token Expired, please retry login");
+        this.routeNav.navigate(["login"]);
+       }
       },
     });
   };
@@ -66,7 +69,9 @@ export class PokedexPageComponent implements OnInit {
         this.totalPage = response.totalPage;
         this.currentPage = 1;
       },
-      error: (error) => {},
+      error: (error) => {
+        console.log(error);
+      },
     });
   }
 
