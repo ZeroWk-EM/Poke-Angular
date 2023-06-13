@@ -1,7 +1,8 @@
 # Poke-angular
-Progetto Angular per esame di fine corso
+Angular project for end-of-course exam
 
 - EMANUELE MONCADA
 - MIRKO AMATO
 - SAMUEL SAMPERISI
 - NICOLO GIRAFFA
+- CHIARA BONELLI
