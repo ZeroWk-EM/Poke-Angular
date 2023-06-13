@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/service/auth.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { GenericMessage } from 'src/models/user';
 
@@ -13,7 +13,7 @@ export class ValidateFormComponent implements OnInit {
   idValue: string | null;
   validateForm!: FormGroup;
 
-  constructor(private authService: AuthService, private route: ActivatedRoute) {
+  constructor(private authService: AuthService, private route: ActivatedRoute, private navRoute:Router) {
     this.idValue = this.route.snapshot.paramMap.get('id');
   }
 
@@ -26,6 +26,7 @@ export class ValidateFormComponent implements OnInit {
     this.authService.validate(String(this.idValue)).subscribe({
       next: ({ message }) => {
         window.alert(message);
+        this.navRoute.navigate(["login"]);
       },
       error: (error) => {
         window.alert(error.error.message);

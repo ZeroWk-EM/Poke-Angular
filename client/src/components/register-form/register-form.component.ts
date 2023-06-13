@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { GenericMessage } from 'src/models/user';
 import { AuthService } from 'src/service/auth.service';
 
@@ -10,7 +11,7 @@ import { AuthService } from 'src/service/auth.service';
 })
 export class RegisterFormComponent implements OnInit {
   registerForm!: FormGroup;
-  constructor(private authservice: AuthService) {}
+  constructor(private authservice: AuthService, private route: Router) {}
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
@@ -37,6 +38,7 @@ export class RegisterFormComponent implements OnInit {
           window.alert(
             `${String(message)}, check your email for validate your account`
           );
+          this.route.navigate(['login']);
         },
         error: (error) => {
           window.alert(String(error.error.message));
