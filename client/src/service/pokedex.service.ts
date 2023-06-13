@@ -10,19 +10,23 @@ export class PokedexService {
   constructor(private http: HttpClient) {}
 
   createData = (page: number): Observable<ResponsePokedex> => {
-    /*  const header = new HttpHeaders({
+    const header = new HttpHeaders({
       authorization: `${localStorage.getItem('token')}`,
-    }); */
+    });
 
     return this.http.get<ResponsePokedex>(
-      `http://localhost:5000/v1/pokedex?page=${page}` /* ,
-      { headers: header } */
+      `http://localhost:5000/v1/pokedex?page=${page}`,
+      { headers: header }
     );
   };
 
   searchPokemon(name: string): Observable<ResponsePokedex> {
+    const header = new HttpHeaders({
+      authorization: `${localStorage.getItem('token')}`,
+    });
     return this.http.get<ResponsePokedex>(
-      `http://localhost:5000/v1/pokedex/${name}`
+      `http://localhost:5000/v1/pokedex/${name}`,
+      { headers: header }
     );
   }
 }
