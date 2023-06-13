@@ -37,7 +37,7 @@ export const getPokemon = async (req: Request, res: Response) => {
       .status(200)
       .json({ results: result, totalPage: Math.ceil(response.data.count / 5) });
   } catch (error) {
-    console.log("GAY HAI CAUSATO UN ERRORE", error);
+    return res.status(400).json({ message:error }); 
   }
 };
 
