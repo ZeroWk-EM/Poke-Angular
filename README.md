@@ -27,7 +27,7 @@ Angular project for end-of-course exam
 
 4. Create `.env` file and set the required environment variables.
 
-```
+   ```
     // DEFAULT VAR
     PORT= // Port on which the application will be started
     MONGO_URL= // Mongo DB URL
@@ -37,7 +37,7 @@ Angular project for end-of-course exam
     SMPT_PORT= 465 // Is default in most client
     SMPT_USER= // Email of the account that will send the emails to the recipients
     SMPT_PASS= // Password of the account that will send the emails to the recipients
-```
+   ```
 
 **NB.REMEMBER TO DELETE ALL COMMENTS INSIDE THE .ENV FILE**
 
