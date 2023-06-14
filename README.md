@@ -43,7 +43,7 @@ Angular project for end-of-course exam
 
 5. Start the server:
 
-- `npm run start` : start the server (set env variable for windows system) using the production database
-- `npm run start:macos` : start the server (set env variable for unix system) using the production database
-- `npm run dev` : start the server (set env variable for windows system) using the dev database
-- `npm run dev:macos` : start the server (set env variable for unix system) using the dev database
+- `npm run start` ==> start the server (set env variable for windows system) using the production database
+- `npm run start:macos` ==> start the server (set env variable for unix system) using the production database
+- `npm run dev` ==> start the server (set env variable for windows system) using the dev database
+- `npm run dev:macos` ==> start the server (set env variable for unix system) using the dev database
